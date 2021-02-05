@@ -1412,24 +1412,24 @@ addToDone("Exercise 80 is correct.")
 // Exercise 81
 // Write a function definition named shortestString that takes in an array of strings and returns the shortest string in the array.
 function shortestString(strings){
-  var teststring = [];
+  var testString = [];
   
   for (var i = 0; i < strings.length; i++){//takes the length of every individual string and puts it in an array
     var individualString = strings[i];
-    teststring.push(individualString.length);  
-    console.log(teststring);
-  }
-  var shortest = 0;
-  for (var i = 0; i < strings.length, i++){//calculates largest number in the created array
-    if(teststring[i] > shortest
-      ){
-      shortest = strings[i];
+    testString.push(individualString.length);  
     }
+ 
+  var numberIndex = Math.min(...testString);//spread operator
+  
+  var stringIndex = testString.findIndex(arrayIndex);
+  function arrayIndex(value){
+    return value === numberIndex;
   }
-  console.log(teststring);
-  var shortest = teststring[0];
-  return shortest;
+  
+  return strings[stringIndex];
+ 
 }
+
 assert(shortestString(["kiwi", "mango", "strawberry"]), "kiwi", "Exercise 81");
 assert(shortestString(["hello", "everybody"]), "hello", "Exercise 81");
 assert(shortestString(["mary", "had", "a", "little", "lamb"]), "a", "Exercise 81");
@@ -1438,7 +1438,24 @@ addToDone("Exercise 81 is correct.")
 
 // Exercise 82
 // Write a function definition named longestString that takes in sequence of strings and returns the longest string in the array.
-
+function longestString(strings){
+  var testString = [];
+  
+  for (var i = 0; i < strings.length; i++){//takes the length of every individual string and puts it in an array
+    var individualString = strings[i];
+    testString.push(individualString.length);  
+    }
+ 
+  var numberIndex = Math.max(...testString);//spread operator
+ 
+  var stringIndex = testString.findIndex(arrayIndex);
+  function arrayIndex(value){
+    return value === numberIndex;
+  }
+  
+  return strings[stringIndex];
+ 
+}
 assert(longestString(["kiwi", "mango", "strawberry"]), "strawberry", "Exercise 82");
 assert(longestString(["hello", "everybody"]), "everybody", "Exercise 82");
 assert(longestString(["mary", "had", "a", "little", "lamb"]), "little", "Exercise 82");
@@ -1447,7 +1464,19 @@ addToDone("Exercise 82 is correct.")
 
 // Exercise 83
 // Write a function definition named getUniqueValues that takes in an array and returns an with only the unique values from that array.
-
+function getUniqueValues (values){
+  for (var i = 0; i < values.length; i++){
+   
+    var indexedString = values[i];
+    
+    var compared = values.find(sameWord);
+    console.log(word);
+    function sameWord(word){
+      return word === indexedString;
+    }
+    
+  }
+ }
 assert(getUniqueValues(["ant", "ant", "mosquito", "mosquito", "ladybug"]), ["ant", "mosquito", "ladybug"], "Exercise 83");
 assert(getUniqueValues(["b", "a", "n", "a", "n", "a", "s"]), ["b", "a", "n", "s"], "Exercise 83");
 assert(getUniqueValues(["mary", "had", "a", "little", "lamb", "little", "lamb", "little", "lamb"]), ["mary", "had", "a", "little", "lamb"], "Exercise 83");
