@@ -1813,8 +1813,16 @@ addToDone("Exercise 99 is complete.");
 // Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
 // Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
 function getAverageSpentPerItem(cart){
+  var value = Object.values(cart);
+  var products = value[1];
+  var totalPrice = 0;
+  var totalQuantity = 0;
+    for (var i = 0; i < products.length; i++){
+      totalPrice = totalPrice + (products[i].price * products[i].quantity);
+      totalQuantity = totalQuantity + products[i].quantity;
+    }
   
-  return
+  return totalPrice / totalQuantity;
 }
 assert(getAverageSpentPerItem(shoppingCart), 1.333529411764706, "Exercise 100");
 addToDone("Exercise 100 is complete.");
@@ -1824,7 +1832,22 @@ addToDone("Exercise 100 is complete.");
 // Be sure to do this as programmatically as possible.
 // Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
 // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
-
+function mostSpentOnItem(cart){
+  var mostSpent = 0;
+  var value = Object.values(cart);
+  var products = value[1];
+  var totalPrice = 0;
+  var totalQuantity = 0;
+    for (var i = 0; i < products.length; i++){
+      totalPrice = (products[i].price * products[i].quantity);
+      if (totalPrice > mostSpent){
+        mostSpent = totalPrice;
+        var index = i;
+      }
+      totalQuantity = totalQuantity + products[i].quantity;
+    }
+  return products[index];
+}
 assert(
   mostSpentOnItem(shoppingCart),
   {
