@@ -79,7 +79,7 @@ addToDone("Exercise 4 is correct.");
 // Add the string "tomato" to the end of the fruits array.
 // *Hint* Recommend finding and using a built-in JS operation to add to an array rather than recreating the array.
 
-var newfruits = fruits.push("tomato");
+fruits.push("tomato");
 assert(
   fruits,
   ["mango", "banana", "guava", "kiwi", "strawberry", "tomato"],
@@ -91,7 +91,7 @@ addToDone("Exercise 5 is correct");
 // add the string "tomato" onto the end of the vegetables array.
 // Recommend using the built-in JS operation to add to an array.
 
-var newvegetables = vegetables.push("tomato");
+vegetables.push("tomato");
 assert(
   vegetables,
   ["eggplant", "broccoli", "carrot", "cauliflower", "zucchini", "tomato"],
@@ -103,7 +103,7 @@ addToDone("Exercise 6 is correct");
 // Given the array of numbers defined below, reverse the array of numbers that you created above.
 var someNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-var reversed = someNumbers.reverse();
+someNumbers.reverse();
 assert(someNumbers, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1], "Exercise 7");
 addToDone("Exercise 7 is correct");
 
@@ -119,8 +119,7 @@ addToDone("Exercise 8 is correct.");
 
 // Exercise 9
 // Write the code necessary to sort the fruits in reverse alphabetical order
-fruits.sort();
-fruits.reverse();
+fruits.sort().reverse();
 assert(
   fruits,
   ["tomato", "strawberry", "mango", "kiwi", "guava", "banana"],
@@ -330,7 +329,7 @@ addToDone("Exercise 16 is correct.");
 // Write a function definition named isPositiveOdd that takes in a number and returns true or false if the value is both greater than zero and odd
 
 function isPositiveOdd(number) {
-  if (number > 0 && number % 2 != 0) {
+  if (number > 0 && number % 2 !== 0) {
     return (number = true);
   }
   return (number = false);
@@ -362,7 +361,7 @@ addToDone("Exercise 18 is correct.");
 // Write a function definition named isNegativeOdd that takes in a number and returns true or false if the value is both less than zero and odd.
 
 function isNegativeOdd(number) {
-  if (number < 0 && number % 2 != 0) {
+  if (number < 0 && number % 2 !== 0) {
     return (number = true);
   }
   return (number = false);
@@ -450,7 +449,7 @@ addToDone("Exercise 24 is correct.");
 // Write a function definition named absoluteValue that takes in a number and returns the absolute value of the provided number
 
 function absoluteValue(number) {
-  return (number = Math.abs(number));
+  return Math.abs(number);
 }
 
 assert(absoluteValue(4), 4, "Exercise 25");
@@ -520,7 +519,7 @@ addToDone("Exercise 28 is correct.");
 // Write a function definition named square that takes in a number and returns the number times itself.
 
 function square(number) {
-  return (number = number * number);
+  return number * number;
 }
 
 assert(square(3), 9, "Exercise 29");
@@ -537,7 +536,7 @@ addToDone("Exercise 29 is correct.");
 // Write a function definition named add that takes in two numbers and returns the sum.
 
 function add(number1, number2) {
-  return (number1 = number1 + number2);
+  return number1 + number2;
 }
 assert(add(3, 2), 5, "Exercise 30");
 assert(add(10, -2), 8, "Exercise 30");
@@ -548,7 +547,7 @@ addToDone("Exercise 30 is correct.");
 // Write a function definition named cube that takes in a number and returns the number times itself, times itself.
 
 function cube(number) {
-  return (number = Math.pow(number, 3));
+  return Math.pow(number, 3);
 }
 assert(cube(3), 27, "Exercise 31");
 assert(cube(2), 8, "Exercise 31");
@@ -564,7 +563,7 @@ addToDone("Exercise 31 is correct.");
 // Write a function definition named squareRoot that takes in a number and returns the square root of the provided number
 
 function squareRoot(number) {
-  return (number = Math.sqrt(number));
+  return Math.sqrt(number);
 }
 assert(squareRoot(4), 2.0, "Exercise 32");
 assert(squareRoot(64), 8.0, "Exercise 32");
@@ -575,7 +574,7 @@ addToDone("Exercise 32 is correct.");
 // Write a function definition named subtract that takes in two numbers and returns the first minus the second argument.
 
 function subtract(number1, number2) {
-  return (number1 = number1 - number2);
+  return number1 - number2;
 }
 assert(subtract(8, 6), 2, "Exercise 33");
 assert(subtract(27, 4), 23, "Exercise 33");
@@ -586,7 +585,7 @@ addToDone("Exercise 33 is correct.");
 // Write a function definition named multiply that takes in two numbers and returns the first times the second argument.
 
 function multiply(number1, number2) {
-  return (number1 = number1 * number2);
+  return number1 * number2;
 }
 assert(multiply(2, 1), 2, "Exercise 34");
 assert(multiply(3, 5), 15, "Exercise 34");
@@ -597,7 +596,7 @@ addToDone("Exercise 34 is correct.");
 // Write a function definition named divide that takes in two numbers and returns the first argument divided by the second argument.
 
 function divide(number1, number2) {
-  return (number1 = number1 / number2);
+  return number1 / number2;
 }
 
 assert(divide(27, 9), 3, "Exercise 35");
@@ -609,7 +608,7 @@ addToDone("Exercise 35 is correct.");
 // Exercise 36
 // Write a function definition named quotient that takes in two numbers and returns the quotient of dividing the first argument by the second argument.
 function quotient(number1, number2) {
-  return (number1 = Math.trunc(number1 / number2)); // could have also used Math.floor
+  return Math.trunc(number1 / number2); // could have also used Math.floor or number toFixed
 }
 assert(quotient(27, 9), 3, "Exercise 36");
 assert(quotient(5, 2), 2, "Exercise 36");
@@ -620,7 +619,7 @@ addToDone("Exercise 36 is correct.");
 // Write a function definition named remainder that takes in two numbers and returns the remainder of first argument divided by the second argument.
 
 function remainder(number1, number2) {
-  return (number1 = number1 % number2);
+  return number1 % number2;
 }
 assert(remainder(3, 3), 0, "Exercise 37");
 assert(remainder(5, 2), 1, "Exercise 37");
@@ -631,7 +630,7 @@ addToDone("Exercise 37 is correct.");
 // Write a function definition named sumOfSquares that takes in two numbers, squares each number, then returns the sum of both squares.
 
 function sumOfSquares(number1, number2) {
-  return (number1 = Math.pow(number1, 2) + Math.pow(number2, 2));
+  return Math.pow(number1, 2) + Math.pow(number2, 2);
 }
 assert(sumOfSquares(3, 2), 13, "Exercise 38");
 assert(sumOfSquares(5, 2), 29, "Exercise 38");
@@ -642,7 +641,7 @@ addToDone("Exercise 38 is correct.");
 // Write a function definition named timesTwoPlusThree that takes in a number, multiplies it by two, adds 3 and returns the result.
 
 function timesTwoPlusThree(number) {
-  return (number = number * 2 + 3);
+  return (number * 2) + 3;
 }
 assert(timesTwoPlusThree(0), 3, "Exercise 39");
 assert(timesTwoPlusThree(1), 5, "Exercise 39");
@@ -654,7 +653,7 @@ addToDone("Exercise 39 is correct.");
 // Exercise 40
 // Write a function definition named areaOfRectangle that takes in two numbers and returns the product.
 function areaOfRectangle(number1, number2) {
-  return (number1 = number1 * number2);
+  return number1 * number2;
 }
 assert(areaOfRectangle(1, 3), 3, "Exercise 40");
 assert(areaOfRectangle(5, 2), 10, "Exercise 40");
@@ -666,7 +665,7 @@ addToDone("Exercise 40 is correct.");
 // Write a function definition named areaOfCircle that takes in a number representing a circle's radius and returns the area of the circle
 
 function areaOfCircle(radius) {
-  return (radius = Math.PI * (radius * radius));
+  return Math.PI * (radius * radius);
 }
 assert(areaOfCircle(3), 28.274333882308138, "Exercise 41");
 assert(areaOfCircle(5), 78.53981633974483, "Exercise 41");
@@ -677,7 +676,7 @@ addToDone("Exercise 41 is correct.");
 // Write a function definition named circumference that takes in a number representing a circle's radius and returns the circumference.
 
 function circumference(radius) {
-  return (radius = 2 * Math.PI * radius);
+  return 2 * Math.PI * radius;
 }
 assert(circumference(3), 18.84955592153876, "Exercise 42");
 assert(circumference(5), 31.41592653589793, "Exercise 42");
