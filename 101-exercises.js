@@ -701,17 +701,18 @@ function isOneOrTwoOrThree(x) {
 // Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
 // Review this code carefully https://gist.github.com/ryanorsinger/5627b954d119dabb3d8c44d56b38c354 if you want more guidance on Exercises 43, 44, and 45.
 function isVowel(vowel) {
-  if (
+ 
+    if (
     vowel == "a" ||
-    vowel == "A" ||
     vowel == "e" ||
-    vowel == "E" ||
     vowel == "i" ||
-    vowel == "I" ||
     vowel == "o" ||
-    vowel == "O" ||
     vowel == "u" ||
-    vowel == "U"
+    vowel == "A" ||
+    vowel == "E" ||
+    vowel == "I" ||
+    vowel == "O" ||
+    vowel == "U"   
   ) {
     return (vowel = true);
   }
@@ -745,16 +746,16 @@ addToDone("Exercise 44 is correct.");
 // Exercise 45
 // Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
 function countVowels(vowels) {
-  var count = 0;
-  vowels = vowels.toLowerCase();
+   var count = 0;
+   vowels = vowels.toLowerCase();
 
   for (var i = 0; i < vowels.length; i++) {
-    var vowel = vowels[i];
-
-    if (isVowel(vowel)) {
+   
+    if (isVowel(vowels[i])) {
       count++;
     }
   }
+  
   return count;
 }
 assert(countVowels("banana"), 3, "Exercise 45");
@@ -780,16 +781,28 @@ function removeVowels(string) {
 var string = string.replaceAll( /[aeiouAEIOU]/g, "" );
 */
 
-  let letterarray = string.split("");
-  return letterarray
-    .map(letter => {
-      if (/[aeiouy]/i.test(letter)) {
-        letter = "";
-      } else {
-        return letter;
-      }
-    })
-    .join("");
+        // let letterarray = string.split("");
+        // return letterarray
+        //   .map(letter => {
+        //     if (/[aeiouy]/i.test(letter)) {
+        //       letter = "";
+        //     } else {
+        //       return letter;
+        //     }
+        //   })
+        //   .join("");
+  
+  string = string.split("");
+  var newString = [];
+  for (var i = 0; i < string.length; i++) { // could possibly leave it as sting and then concat all the non vowels
+   
+    if (!(isVowel(string[i]))) {
+      newString.push(string[i])
+    }
+  }
+  newString = newString.join("");
+  
+  return newString;
 }
 
 assert(removeVowels("banana"), "bnn", "Exercise 46");
@@ -801,19 +814,8 @@ addToDone("Exercise 46 is correct.");
 // Exercise 47
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
 function startsWithVowel(word) {
-  var letter = word[0];
-  if (
-    letter == "a" ||
-    letter == "A" ||
-    letter == "e" ||
-    letter == "E" ||
-    letter == "i" ||
-    letter == "I" ||
-    letter == "o" ||
-    letter == "O" ||
-    letter == "u" ||
-    letter == "U"
-  ) {
+ 
+  if (isVowel(word[0]) === true) {
     return true;
   } else {
     return false;
@@ -828,20 +830,8 @@ addToDone("Exercise 47 is correct.");
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
 
 function endsWithVowel(string) {
-  var arraysize = string.length - 1;
-  var letter = string[arraysize];
-  if (
-    letter == "a" ||
-    letter == "A" ||
-    letter == "e" ||
-    letter == "E" ||
-    letter == "i" ||
-    letter == "I" ||
-    letter == "o" ||
-    letter == "O" ||
-    letter == "u" ||
-    letter == "U"
-  ) {
+  
+  if (isVowel(string[string.length - 1]) === true) {
     return true;
   } else {
     return false;
@@ -857,11 +847,11 @@ addToDone("Exercise 48 is correct.");
 // Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
 
 function startsAndEndsWithVowel(string) {
-  if (startsWithVowel(string) == true && endsWithVowel(string) == true) {
+  if (startsWithVowel(string) === true && endsWithVowel(string) === true) {
     return true;
-  } else {
+  } 
     return false;
-  }
+  
 }
 
 assert(startsAndEndsWithVowel("ubuntu"), true, "Exercise 49");
@@ -921,10 +911,7 @@ addToDone("Exercise 53 is correct.");
 // Write a function definition named last that takes in sequence and returns the last value of that sequence.
 
 function last(string) {
-  var lastindex = string.length - 1;
-  var lastchar = string[lastindex];
-
-  return lastchar;
+  return string[string.length - 1];
 }
 
 assert(last("ubuntu"), "u", "Exercise 54");
@@ -937,10 +924,7 @@ addToDone("Exercise 54 is correct.");
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
 
 function secondToLast(string) {
-  var stolindex = string.length - 2;
-  var stolchar = string[stolindex];
-
-  return stolchar;
+  return string[string.length - 2];
 }
 assert(secondToLast("ubuntu"), "t", "Exercise 55");
 assert(secondToLast([1, 2, 3, 4]), 3, "Exercise 55");
@@ -952,10 +936,7 @@ addToDone("Exercise 55 is correct.");
 // Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
 
 function thirdToLast(string) {
-  var ttolindex = string.length - 3;
-  var ttolchar = string[ttolindex];
-
-  return ttolchar;
+  return string[string.length - 3];
 }
 
 assert(thirdToLast("ubuntu"), "n", "Exercise 56");
@@ -972,8 +953,7 @@ addToDone("Exercise 56 is correct.");
 // Write a function definition named firstAndSecond that takes in sequence and returns the first and second value of that sequence as an array
 
 function firstAndSecond(string) {
-  var firstsecond = [string[0], string[1]];
-  return firstsecond;
+  return [string[0], string[1]];
 }
 assert(firstAndSecond([1, 2, 3, 4]), [1, 2], "Exercise 57");
 assert(firstAndSecond(["JS", "is", "awesome"]), ["JS", "is"], "Exercise 57");
@@ -988,9 +968,7 @@ addToDone("Exercise 57 is correct.");
 // Write a function definition named firstAndLast that takes in sequence and returns the first and last value of that sequence as an array
 
 function firstAndLast(string) {
-  var last = string.length - 1;
-  var firstlast = [string[0], string[last]];
-  return firstlast;
+  return [string[0], string[string.length - 1]];
 }
 
 assert(firstAndLast([1, 2, 3, 4]), [1, 4], "Exercise 58");
@@ -1006,8 +984,7 @@ addToDone("Exercise 58 is correct.");
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
 
 function firstToLast(str) {
-  var first = str[0];
-  str.push(first);
+  str.push(str[0]);
   str.shift();
 
   return str;
@@ -1031,9 +1008,9 @@ addToDone("Exercise 59 is correct.");
 
 function sumAll(sequence) {
   var sum = 0;
-  for (var i = 0; i < sequence.length; i++) {
-    sum = sum + sequence[i];
-  }
+  sequence.forEach(function(sequence){
+    sum += sequence;
+  });
   return sum;
 }
 
@@ -1046,11 +1023,11 @@ addToDone("Exercise 60 is correct.");
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
 
 function mean(sequence) {
-  var mean = 0;
-  for (var i = 0; i < sequence.length; i++) {
-    mean = mean + sequence[i];
-  }
-  return (mean = mean / sequence.length);
+  // var mean = 0;
+  // for (var i = 0; i < sequence.length; i++) {
+  //   mean = mean + sequence[i];
+  // }
+  return (sumAll(sequence) / sequence.length);
 }
 assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
@@ -1088,12 +1065,8 @@ addToDone("Exercise 62 is correct.");
 // Exercise 63
 // Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
 function maxMinusMin(array) {
-  var sorted = array.sort();
-  length = array.length;
-  var min = sorted[0];
-  var max = sorted[length - 1];
-  var difference = max - min;
-  return difference;
+  array.sort();
+  return array[array.length - 1] - array[0];
 }
 
 assert(maxMinusMin([1, 2, 2, 8, 3, 4]), 7, "Exercise 63");
@@ -1104,10 +1077,11 @@ addToDone("Exercise 63 is correct.");
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
 function productOfAll(sequence) {
-  var product = 1; // needs to initialize to one since multiplying
-  for (var i = 0; i < sequence.length; i++) {
-    product = product * sequence[i];
-  }
+  var product = 1;
+  sequence.forEach(function(sequence){
+    product *= sequence;
+  });
+    
   return product;
 }
 
@@ -1119,11 +1093,9 @@ addToDone("Exercise 64 is correct.");
 // Exercise 65
 // Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
 function getHighestNumber(sequence) {
-  var sorted = sequence.sort();
-  var length = sequence.length;
-  var highest = sorted[length - 1];
+  sequence.sort();
   //var highest = Math.max(sequence); gives me NaN it seems to be reading sequence as a string
-  return highest;
+  return sequence[sequence.length - 1];
 }
 
 assert(getHighestNumber([1, 2, 3]), 3, "Exercise 65");
@@ -1135,8 +1107,8 @@ addToDone("Exercise 65 is correct.");
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
 
 function getSmallestNumber(sequence) {
-  var sorted = sequence.sort();
-  return sorted[0];
+    
+  return sequence.sort()[0];
 }
 
 assert(getSmallestNumber([1, 2, 3]), 1, "Exercise 66");
