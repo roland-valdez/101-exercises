@@ -1037,24 +1037,11 @@ addToDone("Exercise 61 is correct.");
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
 function median(sequence) {
-  var mid = 0;
-  var index = 0;
-  var sorted = sequence.sort();
-  var length = sequence.length;
-  var num = length % 2;
-  if (length % 2 !== 0) {
-    //odd
-    index = Math.round(length / 2);
-    mid = sorted[index - 1];
-    return mid;
-  } else {
-    //even
-    index = length / 2;
-    mid = (sorted[index - 1] + sorted[index]) / 2;
-    return mid;
-  }
-
-  return mid;
+  sequence.sort(); 
+  if (sequence.length % 2 !== 0) {    
+    return sequence[(Math.round(sequence.length / 2)) - 1];
+  } 
+    return (sequence[(sequence.length / 2) - 1] + sequence[sequence.length / 2]) / 2; 
 }
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
